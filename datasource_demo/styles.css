@@ -1,0 +1,26 @@
+
+div.k-scrollview ul.k-scrollview-wrap > li {
+    text-align: center;
+    display: table;
+    box-sizing: border-box;
+}
+
+ul.k-scrollview-wrap > li > .img-wrapper {
+    padding: 2em;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+ul.k-scrollview-wrap > li > .img-wrapper > div {
+    width: 30%;
+    min-width: 150px;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 1em;
+}
+
+ul.k-scrollview-wrap > li > .img-wrapper > div > div {
+    margin: auto;
+    margin-bottom: 0.5em;
+}

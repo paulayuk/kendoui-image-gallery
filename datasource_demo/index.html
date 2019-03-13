@@ -1,0 +1,53 @@
+<html>
+   <head>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2019.1.220/styles/kendo.common.min.css">
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2019.1.220/styles/kendo.rtl.min.css">
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2019.1.220/styles/kendo.default.min.css">
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2019.1.220/styles/kendo.mobile.all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2019.1.220/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Image Gallery</title>
+   </head>
+   <body>    
+    <div id="example" style="margin:auto; width:60%">
+        <div id="scrollView" style="height: 600px; width:100%;"></div>
+
+        <script id="scrollview-template" type="text/x-kendo-template">
+            <div class="img-wrapper">
+                # for (var i = 0; i < data.length; i++) { #
+                <div>
+                    <div style="width: 140px; height: 140px; background-image: #=setBackground(data[i].ProductID)#; background-repeat:no-repeat; background-size: cover;"></div>
+                    <p>#= data[i].ProductName #</p>
+                </div>
+             # } #
+            </div>
+        </script>
+
+        <script>
+            var dataSource = new kendo.data.DataSource({
+                type: "odata",
+                transport: {
+                    read: {
+                        url:
+                       "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Products"
+                    }
+                },
+                serverPaging: true,
+                pageSize: 3
+            });
+
+            $("#scrollView").kendoScrollView({
+                dataSource: dataSource,
+                template: $("#scrollview-template").html(),
+                contentHeight: "100%",
+                enablePager: false
+            });
+
+            function setBackground(id) {
+                return 
+              "url(https://demos.telerik.com/kendo-ui/content/web/foods/" + id + ".jpg)";
+           }
+        </script>
+   </body>
+</html>
