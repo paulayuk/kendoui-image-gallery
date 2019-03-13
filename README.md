@@ -1,4 +1,4 @@
-# kendoui-image-gallery
+# kendoUI Image Gallery
 
 This is a demo of how to build an Image Gallery with KendoUI Scroll View component
 
